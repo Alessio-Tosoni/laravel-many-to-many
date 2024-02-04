@@ -11,8 +11,18 @@
                             <h6 class="card-subtitle mb-2 text-muted">
                                 {{ $post->category ? $post->category->name : 'senza categoria' }}
                             </h6>
+                            <div>
+                                @if( count($post->technologies) > 0 )
+                                        @foreach($post->technologies as $technology)
+                                            <h6>{{$technology->name}}</h6>
+                                        @endforeach
+                                @else
+                                    <h6>no technologies linked</h6>
+                                @endif
+                            </div>
                             <div class="card-body">
                                 {{ $post->description }}
+
                                 <div class="d-flex justify-content-evenly">
                                     <div class=" mx-1">
                                         <a href="{{ route("admin.posts.show", $post->id) }}" class="btn btn-primary">Dettaglio</a>
