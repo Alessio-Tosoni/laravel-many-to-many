@@ -19,4 +19,16 @@ class Post extends Model
         return $this->belongsTo(Category::class);
         return $this->belongsTo(Type::class);
     }
+
+    public function type()
+    {
+       
+        return $this->belongsTo(Type::class);
+    }
+
+    public function technologies()
+    {
+        return $this->belongsToMany(Technology::class);
+        
+    }
 }
